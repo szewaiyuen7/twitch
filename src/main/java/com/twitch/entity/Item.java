@@ -64,11 +64,27 @@ public class Item {
     public String getUrl() {
         return url;
     }
+
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
+    }
+
+    public String getGameId() {
+        return gameId;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public ItemType getType() {
+        return type;
+    }
     // If incoming JSON has extra fields, ignore.
     @JsonIgnoreProperties(ignoreUnknown = true)
     // Include non-null information only
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    static class Builder {
+    public static class Builder {
         @JsonProperty("id")
         private String id;
 
@@ -91,7 +107,7 @@ public class Item {
         @JsonProperty("item_type")
         private ItemType type;
 
-        public Builder String(String id) {
+        public Builder id(String id) {
             this.id = id;
             return this;
         }
